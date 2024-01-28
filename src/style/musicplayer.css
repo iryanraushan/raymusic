@@ -1,0 +1,41 @@
+.upper__player__range {
+  display: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 4px;
+  height: 8px;
+  background-color: #a3a3a3;
+  cursor: pointer;
+}
+
+.input__upper {
+  -webkit-appearance: none;
+  background-color: #444444;
+  width: 100%;
+  margin-bottom: 13.8px;
+}
+@media screen and (max-width: 767px) {
+  .upper__player__range {
+    display: block;
+  }
+  .lower__player__range {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #444444;
+    width: 44vw;
+    margin-bottom: 13.8px;
+  }
+
+  .shadow__css {
+    height: 80px;
+    padding: 20px 0 0 0;
+    box-shadow: 1px 0px 1px 1px rgba(194, 194, 194, 0.3);
+  }
+}
