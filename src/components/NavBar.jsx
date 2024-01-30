@@ -23,7 +23,7 @@ const NavBar = () => {
             to={"/"}
             className="font-extrabold text-2xl text-white hidden md:block"
           >
-            VibeVault
+            RayMusic
           </Link>
         </div>
         <div className=" md:flex-row   text-lg lg:text-lg  text-[#969ba1]">
