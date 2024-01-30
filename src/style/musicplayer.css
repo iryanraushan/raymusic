@@ -2,6 +2,10 @@
   display: none;
 }
 
+.shadow__css {
+  background-color: #262626;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 4px;
@@ -14,8 +18,8 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #444444;
   width: 100%;
-  margin-bottom: 13.8px;
 }
+
 @media screen and (max-width: 767px) {
   .upper__player__range {
     display: block;
@@ -25,8 +29,13 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
+.volume__input {
+  -webkit-appearance: none;
+  background-color: #444444;
+}
+
 @media screen and (min-width: 768px) {
-  input[type="range"] {
+  .range__player {
     -webkit-appearance: none;
     background-color: #444444;
     width: 44vw;

@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { BiRepeat } from "react-icons/bi";
 import { IoMdSkipBackward, IoMdSkipForward } from "react-icons/io";
 import { PiShuffleBold } from "react-icons/pi";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { LuDownload } from "react-icons/lu";
+import MusicContext from "../context/MusicContext";
 import "../style/musicplayer.css";
 
 const MusicPlayer = () => {
+  const { currentSong, playMusic, isPlaying, nextSong, prevSong } =
+    useContext(MusicContext);
+
+  const [progressBar, setProgressBar] = useState(0);
+
+  const inputRef = useRef(null);
+
+  const handleProgressChange = (event) => {
+    const newPercentage = parseFloat(event.target.value);
+    const newTime = (newPercentage / 100) * Number(currentSong.duration);
+    currentSong.audio.currentTime = newTime;
+  };
+
+  useEffect(() => {
+    if (currentSong) {
+      const audioElement = currentSong.audio;
+      const handleUpdate = () => {
+        const duration = Number(currentSong.duration);
+        const currentTime = audioElement.currentTime;
+        const newTiming = (currentTime / duration) * 100;
+
+        setProgressBar(newTiming);
+      };
+
+      audioElement.addEventListener("timeupdate", handleUpdate);
+      return () => {
+        audioElement.addEventListener("timeupdate", handleUpdate);
+      };
+    }
+  }, [currentSong]);
+
   return (
-    <div className="fixed right-0 left-0 flex flex-col bottom-0 h-[90px] shadow__css">
+    <div className="fixed bottom-0 right-0 left-0 flex flex-col h-[90px] md:py-5  shadow__css ">
       <div className="upper__player__range">
         <input
           type="range"
@@ -17,34 +49,65 @@ const MusicPlayer = () => {
           min={0}
           max={100}
           step={0.1}
-          range
+          value={progressBar}
+          ref={inputRef}
+          onChange={handleProgressChange}
           className="input__upper"
         />
       </div>
-      <div className="flex justify-between items-center mb-3 px-8">
-        <div className="flex justify-start items-center gap-3 lg:w-[25vw]">
-          <img
-            src="https://c.saavncdn.com/274/Rockstar-2011-50x50.jpg"
-            alt=""
-            width={55}
-            className="rounded-lg"
-          />
-          <div className="hidden lg:block text-[#969ba1]">
+      <div className="flex justify-between items-center mb-3 px-8 musicplayer">
+        <div className="flex justify-start items-center gap-3 mb-4 lg:w-[25vw]">
+          <img src={currentSong?.image} width={55} className="rounded-lg" />
+          <div className="hidden sm:block text-[#969ba1]">
             <span className="text-white font-semibold text-lg">
-              Lorem ipsum
+              {currentSong?.name.replace(/\(.*?\)/g, "").trim()}
             </span>
-            <p className="text-[13px]">Lorem ipsum dolor sit.</p>
+            <p className="text-[13px]">{currentSong?.primaryArtists}</p>
           </div>
         </div>
 
         <div className="flex text-xl lg:text-2xl lg:gap-6 lg:w-[50vw] justify-center">
           <div className="flex flex-col items-center">
-            <div className="flex gap-8 justify-center text-xl">
+            <div className="flex gap-8 justify-center items-center text-xl">
               <BiRepeat className="text-[#a3a3a3] hover:text-[#dfdfdf] hover:cursor-pointer" />
-              <IoMdSkipBackward className="text-[#a3a3a3] hover:text-[#ffffff]  hover:cursor-pointer" />
-              <FaPlay className="text-[#a3a3a3]  hover:text-[#ffffff]  hover:cursor-pointer" />
-              <IoMdSkipForward className="text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer" />
-              <PiShuffleBold className="text-[#a3a3a3]  hover:text-[#fffff]  hover:cursor-pointer" />
+              <IoMdSkipBackward
+                className="text-[#a3a3a3] hover:text-[#ffffff]  hover:cursor-pointer"
+                onClick={prevSong}
+              />
+
+              {isPlaying ? (
+                <FaPause
+                  className=" text-3xl  text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
+                  onClick={() =>
+                    playMusic(
+                      currentSong.audio,
+                      currentSong.name,
+                      currentSong.duration,
+                      currentSong.image,
+                      currentSong.id
+                    )
+                  }
+                />
+              ) : (
+                <FaPlay
+                  className=" text-3xl  text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
+                  onClick={() =>
+                    playMusic(
+                      currentSong.audio,
+                      currentSong.name,
+                      currentSong.duration,
+                      currentSong.image,
+                      currentSong.id
+                    )
+                  }
+                />
+              )}
+
+              <IoMdSkipForward
+                className="text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
+                onClick={nextSong}
+              />
+              <PiShuffleBold className="text-[#a3a3a3]  hover:text-[#ffff]  hover:cursor-pointer" />
             </div>
             <div className="lower__player__range">
               <input
@@ -53,8 +116,10 @@ const MusicPlayer = () => {
                 min={0}
                 max={100}
                 step={0.1}
-                range
-                className="range"
+                value={progressBar}
+                ref={inputRef}
+                onChange={handleProgressChange}
+                className="range__player"
               />
             </div>
           </div>

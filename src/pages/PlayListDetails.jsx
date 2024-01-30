@@ -6,29 +6,29 @@ import NavBar from "../components/NavBar";
 import MusicPlayer from "../components/MusicPlayer";
 import SongList from "../components/SongList";
 
-const AlbumDetails = () => {
+const PlaylistDetails = () => {
   const { id } = useParams();
 
   const { setSongs } = useContext(MusicContext);
-  const [albums, setAlbums] = useState([]); // Fix 1: Use useState instead of {}
+  const [playlists, setPlaylists] = useState([]); // Fix 1: Use useState instead of {}
   const [image, setImage] = useState([]); // Fix 1: Use useState instead of {}
 
-  const getAlbumDetails = async () => {
+  const getPlayLists = async () => {
     try {
-      const res = await axios.get(`https://saavn.me/albums?id=${id}`);
+      const res = await axios.get(`https://saavn.me/playlists?id=${id}`);
       const { data } = await res.data; // Fix 2: Remove extra await
       setSongs(data.songs);
-      setAlbums(data);
+      setPlaylists(data);
       setImage(getImg(data.image));
     } catch (error) {
-      console.error("Error fetching album details:", error);
+      console.error("Error fetching playlist details:", error);
     }
   };
 
   const getImg = (image) => (image = image[2].link);
 
   useEffect(() => {
-    getAlbumDetails();
+    getPlayLists();
   }, []);
 
   return (
@@ -40,16 +40,17 @@ const AlbumDetails = () => {
             src={image}
             className="mx-auto rounded-lg h-52 sm:h-56 md:h-60 lg:h-64"
           />
-          <div className="w-[260px] text-[#cdcccc] gap-4 flex flex-col text-xl font-semibold ">
-            <h1>{albums.name}</h1>
-            <p className="text-[#8b8a8a] ">
-              By : {" " + albums.primaryArtists} |{albums.songCount + " "} Songs
+          <div className=" w-[260px] text-[#cdcccc] gap-4 flex flex-col text-xl font-semibold ">
+            <h1>{playlists.name}</h1>
+            <p className="text-[#8b8a8a] text-end">
+              {playlists.songCount + " "} Songs |
+              {" " + playlists.fanCount + " "} Fans
             </p>
           </div>
         </div>
 
         <div>
-          {albums.songs?.map((songs) => (
+          {playlists.songs?.map((songs) => (
             <SongList key={songs.id} {...songs} />
           ))}
         </div>
@@ -59,4 +60,4 @@ const AlbumDetails = () => {
   );
 };
 
-export default AlbumDetails;
+export default PlaylistDetails;

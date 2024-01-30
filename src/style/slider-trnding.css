@@ -1,0 +1,3 @@
+.slider__trending::-webkit-scrollbar {
+  display: none;
+}
