@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AlbumDetails from "./pages/AlbumDetails";
 import MusicContext from "./context/MusicContext";
@@ -103,14 +103,14 @@ function App() {
         prevSong,
       }}
     >
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/albums/:id" element={<AlbumDetails />} />
           <Route path="/playlists" element={<PlayList />} />
           <Route path="/playlists/:id" element={<PlaylistDetails />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </MusicContext.Provider>
   );
 }
