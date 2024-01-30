@@ -25,7 +25,7 @@ const Slider = ({ data }) => {
       />
 
       <div
-        className="grid grid-rows-2 p-6 grid-flow-col-dense justify-between items-center gap-6 overflow-x-scroll sm:w-[90vw] lg:w-[78vw] slider__trending m-20 my-7"
+        className="grid md:grid-rows-2 grid-cols-2   p-6 grid-flow-col-dense justify-between items-center gap-6 overflow-x-scroll sm:w-[90vw] lg:w-[78vw] slider__trending m-20 my-7"
         ref={scrollRef}
       >
         {data?.map((album) => (
