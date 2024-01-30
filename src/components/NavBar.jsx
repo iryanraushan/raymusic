@@ -7,27 +7,32 @@ import { FaInstagram } from "react-icons/fa";
 
 const NavBar = () => {
   return (
-    <nav className="sticky top-0 w-auto bg-[#262626] shadow-[0_2px_7px_rgb(0,0,0,0.12)] px-7 h-[63px] flex items-center justify-between border-none lg:border left-0 right-0">
+    <nav className="sticky top-0 w-auto bg-[#262626] shadow-[0_2px_7px_rgb(0,0,0,0.12)] px-6 h-[63px] flex items-center justify-between border-none lg:border left-0 right-0">
       {/* 1st div */}
-      <div className="flex flex-col justify-between md:flex-row items-center gap-7">
+      <div className="flex  justify-between md:flex-row items-center gap-6">
         <div className="flex justify-between items-center">
-          <img
-            src="/logo.png"
-            alt="vibevault"
-            width={80}
-            className="opacity-[0.7]"
-          />
-          <Link to={"/"} className="font-extrabold text-2xl text-white ">
+          <Link to={"/"}>
+            <img
+              src="/logo.png"
+              alt="vibevault"
+              width={80}
+              className="opacity-[0.7] "
+            />
+          </Link>
+          <Link
+            to={"/"}
+            className="font-extrabold text-2xl text-white hidden md:block"
+          >
             VibeVault
           </Link>
         </div>
-        <div className="hidden lg:block md:flex-row text-lg lg:text-lg  text-[#969ba1]">
+        <div className=" md:flex-row   text-lg lg:text-lg  text-[#969ba1]">
           <div className="flex gap-6">
             {/* <li className="list-none hover:cursor-pointer">Music</li> */}
             <Link to={`/playlists`}>
               <li className="list-none hover:cursor-pointer">Playlist</li>
             </Link>
-            <li className="list-none text-red-300 cursor-not-allowed">
+            <li className="list-none text-red-300 cursor-not-allowed hidden md:block">
               Go Pro
             </li>
           </div>
@@ -50,7 +55,7 @@ const NavBar = () => {
         </div> */}
 
         <div className="flex text-[#e2e1e1] font-semibold items-center">
-          <li class="flex items-center">
+          <li class="flex items-center hidden md:block">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href="https://github.com/iryanraushan/"
@@ -59,7 +64,7 @@ const NavBar = () => {
               <FaGithub className="lg:text-blueGray-200 text-blueGray-400 text-3xl leading-lg" />
             </a>
           </li>
-          <li class="flex items-center">
+          <li class="flex items-center hidden md:block">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href="https://instagram.com/rryan_xd/"

@@ -29,14 +29,14 @@ const PlayList = () => {
   return (
     <div>
       <NavBar />
-      <div className="">
+      <div className="px-2">
         <div className="mb-6">
           <h2 className="text-[1.8rem] text-[#ebebeb] font-semibold  w-[85vw] mx-auto mt-5">
             Top Playlists
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-5  xl:grid-cols-6 px-5 gap-6 w-[90%] mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-5  xl:grid-cols-6 px-5 gap-x-10 gap-y-10  w-[100%] md:w-[90%] mx-auto">
           {playlists?.map((playlists) => (
             <PlayListCard key={playlists.id} {...playlists} />
           ))}
