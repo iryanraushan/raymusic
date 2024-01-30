@@ -77,7 +77,7 @@ const MusicPlayer = () => {
 
               {isPlaying ? (
                 <FaPause
-                  className=" text-3xl  text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
+                  className="text-3xl  text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
                   onClick={() =>
                     playMusic(
                       currentSong.audio,
@@ -126,7 +126,7 @@ const MusicPlayer = () => {
         </div>
 
         <div className="flex lg:w-[25vw] justify-end items-center gap-8">
-          <LuDownload className="text-2xl text-[#a3a3a3]  lg:text-3xl" />
+          <LuDownload className="text-2xl text-[#a3a3a3]  lg:text-3xl " />
           <HiSpeakerWave className="text-2xl text-[#a3a3a3]  lg:text-3xl hidden sm:block" />
         </div>
       </div>

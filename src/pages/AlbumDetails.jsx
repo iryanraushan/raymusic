@@ -5,6 +5,8 @@ import MusicContext from "../context/MusicContext";
 import NavBar from "../components/NavBar";
 import MusicPlayer from "../components/MusicPlayer";
 import SongList from "../components/SongList";
+import { BiCaretRightCircle } from "react-icons/bi";
+import { BiPauseCircle } from "react-icons/bi";
 
 const AlbumDetails = () => {
   const { id } = useParams();
@@ -40,10 +42,10 @@ const AlbumDetails = () => {
             src={image}
             className="mx-auto rounded-lg h-52 sm:h-56 md:h-60 lg:h-64"
           />
-          <div className="w-[260px] text-[#cdcccc] gap-4 flex flex-col text-xl font-semibold ">
+          <div className=" w-[260px] text-[#cdcccc] gap-4 flex flex-col text-xl font-semibold ">
             <h1>{albums.name}</h1>
-            <p className="text-[#8b8a8a] ">
-              By : {" " + albums.primaryArtists} |{albums.songCount + " "} Songs
+            <p className="text-[#8b8a8a] text-end">
+              {albums.songCount + " "} Songs
             </p>
           </div>
         </div>

@@ -3,28 +3,21 @@ import axios from "axios";
 import NavBar from "../components/NavBar";
 import MusicPlayer from "../components/MusicPlayer";
 import PlayListCard from "../components/PlayListCard";
-
+PlayListCard;
 const PlayList = () => {
-  const [albums, setAlbums] = useState([]);
-  const [trending, setTrending] = useState([]);
   const [playlists, setPlaylists] = useState([]);
 
   const getHomePageData = async () => {
-    const res = await axios.get("https://saavn.me/modules?language=hindi");
+    const res = await axios.get(
+      "https://saavn.me/modules?language=hindi,english"
+    );
     const { data } = res.data;
-    setAlbums(data.albums);
-    setTrending(data.trending);
     setPlaylists(data.playlists);
   };
 
   useEffect(() => {
     getHomePageData();
   }, []);
-
-  const trendingAlbums = useMemo(
-    () => (Array.isArray(trending.albums) ? trending.albums : []),
-    [trending.albums]
-  );
 
   return (
     <div>
@@ -36,10 +29,12 @@ const PlayList = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-5  xl:grid-cols-6 px-5 gap-x-10 gap-y-10  w-[100%] md:w-[90%] mx-auto">
-          {playlists?.map((playlists) => (
-            <PlayListCard key={playlists.id} {...playlists} />
-          ))}
+        <div className="flex justify-center mx-[3%]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-2 gap-x-6 ">
+            {playlists?.map((playlists) => (
+              <PlayListCard key={playlists.id} {...playlists} />
+            ))}
+          </div>
         </div>
       </div>
       <MusicPlayer />

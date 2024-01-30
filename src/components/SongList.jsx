@@ -69,7 +69,7 @@ const SongList = ({
           }`}
           ref={playMusicRef}
         >
-          {name.trim().split(" ").slice(0, 3).join(" ")}
+          {name.replace(/\(.*?\)/g, "").trim()}
           {isPlaying && id === currentSong?.id && (
             <div id="player__vibe">
               <div className="icon__rel ml-5">
@@ -80,7 +80,7 @@ const SongList = ({
             </div>
           )}
         </span>
-        <span className="font-thin text-[#a0a0a0]">
+        <span className="font-thin text-[#a0a0a0] w-[150px] sm:w-auto w-250 whitespace-nowrap overflow-hidden overflow-ellipsis">
           {primaryArtists.split(",").slice(0, 4).join(", ")}
         </span>
       </div>

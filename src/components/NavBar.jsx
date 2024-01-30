@@ -7,15 +7,15 @@ import { FaInstagram } from "react-icons/fa";
 
 const NavBar = () => {
   return (
-    <nav className="sticky top-0 w-auto bg-[#262626] shadow-[0_2px_7px_rgb(0,0,0,0.12)] px-6 h-[63px] flex items-center justify-between border-none lg:border left-0 right-0">
+    <nav className="sticky top-0 w-[100%] bg-[#262626] shadow-[0_2px_7px_rgb(0,0,0,0.12)] h-[63px] flex items-center justify-between border-none lg:border left-0 right-0">
       {/* 1st div */}
-      <div className="flex  justify-between md:flex-row items-center gap-6">
+      <div className="flex  justify-between md:flex-row items-center gap-2 sm:gap-4">
         <div className="flex justify-between items-center">
           <Link to={"/"}>
             <img
               src="/logo.png"
               alt="vibevault"
-              width={80}
+              width={70}
               className="opacity-[0.7] "
             />
           </Link>
@@ -27,12 +27,12 @@ const NavBar = () => {
           </Link>
         </div>
         <div className=" md:flex-row   text-lg lg:text-lg  text-[#969ba1]">
-          <div className="flex gap-6">
+          <div className="flex gap-">
             {/* <li className="list-none hover:cursor-pointer">Music</li> */}
             <Link to={`/playlists`}>
               <li className="list-none hover:cursor-pointer">Playlist</li>
             </Link>
-            <li className="list-none text-red-300 cursor-not-allowed hidden md:block">
+            <li className="list-none text-red-300 cursor-not-allowed hidden md:block mx-6">
               Go Pro
             </li>
           </div>

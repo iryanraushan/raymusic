@@ -6,7 +6,7 @@ import {
 } from "react-icons/md";
 
 import "../style/slider-trnding.css";
-import PlayListCard from "./PlayListCard";
+import PlayListCardSlider from "./PlayListCardSlider";
 
 const SliderCopy = ({ data }) => {
   const scrollRef = useRef(null);
@@ -29,7 +29,7 @@ const SliderCopy = ({ data }) => {
         ref={scrollRef}
       >
         {data?.map((playlists) => (
-          <PlayListCard key={playlists.id} {...playlists} />
+          <PlayListCardSlider key={playlists.id} {...playlists} />
         ))}
       </div>
 
