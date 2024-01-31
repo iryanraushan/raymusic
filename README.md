@@ -48,3 +48,5 @@ A step by step series of examples that tell you how to get a development environ
 ### Playlists details page
 
 ![prev3](https://github.com/iryanraushan/raymusic/assets/83304272/cd8825ec-9f23-4e2e-86f0-a920ce1d6fab)
+
+[MIT License](/LICENSE.txt)
