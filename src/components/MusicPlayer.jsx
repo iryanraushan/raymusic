@@ -41,7 +41,7 @@ const MusicPlayer = () => {
   }, [currentSong]);
 
   return (
-    <div className="fixed bottom-0 right-0 left-0 flex flex-col h-[90px] md:py-5  shadow__css ">
+    <div className="fixed bottom-0 right-0 left-0 flex flex-col h-[90px] shadow__css">
       <div className="upper__player__range">
         <input
           type="range"
@@ -55,18 +55,21 @@ const MusicPlayer = () => {
           className="input__upper"
         />
       </div>
-      <div className="flex justify-between items-center mb-3 px-8 musicplayer">
-        <div className="flex justify-start items-center gap-3 mb-4 lg:w-[25vw]">
+
+      <div className="flex justify-between items-center px-8 musicplayer gap-1 ">
+        <div className="flex justify-start items-center gap-3">
           <img src={currentSong?.image} width={55} className="rounded-lg" />
           <div className="hidden sm:block text-[#969ba1]">
-            <span className="text-white font-semibold text-lg">
+            <span className="text-white font-semibold text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
               {currentSong?.name.replace(/\(.*?\)/g, "").trim()}
             </span>
-            <p className="text-[13px]">{currentSong?.primaryArtists}</p>
+            <p className="text-[13px] whitespace-nowrap overflow-hidden overflow-ellipsis">
+              {currentSong?.primaryArtists}
+            </p>
           </div>
         </div>
 
-        <div className="flex text-xl lg:text-2xl lg:gap-6 lg:w-[50vw] justify-center">
+        <div className="flex text-xl lg:text-2xl  md:w-[50vw] justify-center">
           <div className="flex flex-col items-center">
             <div className="flex gap-8 justify-center items-center text-xl">
               <BiRepeat className="text-[#a3a3a3] hover:text-[#dfdfdf] hover:cursor-pointer" />
@@ -125,9 +128,9 @@ const MusicPlayer = () => {
           </div>
         </div>
 
-        <div className="flex lg:w-[25vw] justify-end items-center gap-8">
-          <LuDownload className="text-2xl text-[#a3a3a3]  lg:text-3xl " />
-          <HiSpeakerWave className="text-2xl text-[#a3a3a3]  lg:text-3xl hidden sm:block" />
+        <div className="flex  justify-end items-center gap-8">
+          <LuDownload className="text-2xl text-[#a3a3a3]  lg:text-3xl" />
+          <HiSpeakerWave className="text-2xl text-[#a3a3a3]  lg:text-3xl hidden md:block" />
         </div>
       </div>
     </div>
