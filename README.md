@@ -34,15 +34,17 @@ A step by step series of examples that tell you how to get a development environ
 ## Previews
 
 ### Home Page
+
 ![prev01](https://github.com/iryanraushan/raymusic/assets/83304272/a2bb8963-aee7-4d3a-9ad0-1ed2a7078fc8)
 
 ### Playlists page
+
 ![prev2](https://github.com/iryanraushan/raymusic/assets/83304272/b7212650-6dbd-4b71-9e34-1c511b23590f)
 
 ### While playing music
+
 ![prev4](https://github.com/iryanraushan/raymusic/assets/83304272/cdfef943-ebc8-45b4-be44-7d08df1e875f)
 
 ### Playlists details page
+
 ![prev3](https://github.com/iryanraushan/raymusic/assets/83304272/cd8825ec-9f23-4e2e-86f0-a920ce1d6fab)
-
-
