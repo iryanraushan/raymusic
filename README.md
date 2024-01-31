@@ -30,3 +30,11 @@ A step by step series of examples that tell you how to get a development environ
 - **Search Functionality:** Search for specific songs, artists, or albums.
 - **Responsive Design:** Enjoy a seamless experience on different devices, thanks to the use of Tailwind CSS for responsive styling.
 - **Fast Development:** The project was initialized with Vite, a next-generation frontend tooling that provides a faster development experience for web projects.
+
+## Previews
+![prev01](https://github.com/iryanraushan/raymusic/assets/83304272/a2bb8963-aee7-4d3a-9ad0-1ed2a7078fc8)
+![prev2](https://github.com/iryanraushan/raymusic/assets/83304272/b7212650-6dbd-4b71-9e34-1c511b23590f)
+![prev4](https://github.com/iryanraushan/raymusic/assets/83304272/cdfef943-ebc8-45b4-be44-7d08df1e875f)
+![prev3](https://github.com/iryanraushan/raymusic/assets/83304272/cd8825ec-9f23-4e2e-86f0-a920ce1d6fab)
+
+
