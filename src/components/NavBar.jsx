@@ -4,11 +4,13 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import SongSearchInput from "./SongSearchInput";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import SearchSection from "./SearchSection";
 
 const NavBar = () => {
   return (
     <nav className="sticky top-0 w-[100%] bg-[#262626] shadow-[0_2px_7px_rgb(0,0,0,0.12)] h-[63px] flex items-center justify-between border-none lg:border left-0 right-0 px-3">
       {/* 1st div */}
+
       <div className="flex  justify-between md:flex-row items-center gap-2 sm:gap-4">
         <div className="flex justify-between items-center">
           <Link to={"/"}>
@@ -17,6 +19,7 @@ const NavBar = () => {
               alt="vibevault"
               width={70}
               className="opacity-[0.7] "
+              loading="lazy"
             />
           </Link>
           <Link

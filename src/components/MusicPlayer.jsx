@@ -19,7 +19,9 @@ const MusicPlayer = () => {
   const handleProgressChange = (event) => {
     const newPercentage = parseFloat(event.target.value);
     const newTime = (newPercentage / 100) * Number(currentSong.duration);
-    currentSong.audio.currentTime = newTime;
+    if (newTime >= 0) {
+      currentSong.audio.currentTime = newTime;
+    }
   };
 
   useEffect(() => {
@@ -33,12 +35,40 @@ const MusicPlayer = () => {
         setProgressBar(newTiming);
       };
 
+      const handleNextSong = () => nextSong();
+
       audioElement.addEventListener("timeupdate", handleUpdate);
+      audioElement.addEventListener("ended", handleNextSong);
       return () => {
         audioElement.addEventListener("timeupdate", handleUpdate);
+        audioElement.addEventListener("ended", handleNextSong);
       };
     }
   }, [currentSong]);
+
+  const handleDownloadSong = async (url) => {
+    try {
+      const res = await fetch(url);
+      const blob = await res.blob();
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${currentSong.name}.mp3`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.log(`download error, ${error}`);
+    }
+  };
+
+  const downloadConfirm = () => {
+    const choice = confirm("are you sure you want to download this song ?");
+    if (choice) {
+      handleDownloadSong();
+    } else {
+      return;
+    }
+  };
 
   return (
     <div className="fixed bottom-0 right-0 left-0 flex flex-col h-[90px] shadow__css">
@@ -58,12 +88,17 @@ const MusicPlayer = () => {
 
       <div className="flex justify-between items-center px-8 musicplayer gap-1 ">
         <div className="flex justify-start items-center gap-3">
-          <img src={currentSong?.image} width={55} className="rounded-lg" />
+          <img
+            src={currentSong?.image}
+            width={55}
+            className="rounded-lg"
+            loading="lazy"
+          />
           <div className="hidden sm:block text-[#969ba1]">
             <span className="text-white font-semibold text-lg whitespace-nowrap overflow-hidden overflow-ellipsis">
               {currentSong?.name.replace(/\(.*?\)/g, "").trim()}
             </span>
-            <p className="text-[13px] whitespace-nowrap overflow-hidden overflow-ellipsis">
+            <p className="text-[13px] whitespace-nowrap overflow-hidden overflow-ellipsis w-[235px]">
               {currentSong?.primaryArtists}
             </p>
           </div>
@@ -129,7 +164,10 @@ const MusicPlayer = () => {
         </div>
 
         <div className="flex  justify-end items-center gap-8">
-          <LuDownload className="text-2xl text-[#a3a3a3]  lg:text-3xl" />
+          <LuDownload
+            className="text-2xl text-[#a3a3a3]  lg:text-3xl cursor-pointer"
+            onClick={downloadConfirm}
+          />
           <HiSpeakerWave className="text-2xl text-[#a3a3a3]  lg:text-3xl hidden md:block" />
         </div>
       </div>
