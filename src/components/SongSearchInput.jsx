@@ -31,7 +31,7 @@ const SongSearchInput = () => {
         type="text"
         name="Search"
         id="Search"
-        className=" py-2 text-sm max-[400px]:w-[44vw]  rounded-full w-[30vw]  font-semibold text-center text-[#c5c5c5] bg-[#454545] focus:duration-300 "
+        className=" py-2 text-sm md:text-xl max-[400px]:w-[44vw]  rounded-full w-[30vw]  font-semibold text-center text-[#c5c5c5] bg-[#454545] focus:duration-300 "
         placeholder="Search for songs"
         autoComplete="off"
         autoCorrect="off"
