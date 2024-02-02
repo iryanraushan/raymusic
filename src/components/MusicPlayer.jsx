@@ -107,7 +107,7 @@ const MusicPlayer = () => {
         <div className="flex text-xl lg:text-2xl  md:w-[50vw] justify-center">
           <div className="flex flex-col items-center">
             <div className="flex gap-8 justify-center items-center text-xl">
-              <BiRepeat className="text-[#a3a3a3] hover:text-[#dfdfdf] hover:cursor-pointer" />
+              {/* <BiRepeat className="text-[#a3a3a3] hover:text-[#dfdfdf] hover:cursor-pointer" /> */}
               <IoMdSkipBackward
                 className="text-[#a3a3a3] hover:text-[#ffffff]  hover:cursor-pointer"
                 onClick={prevSong}
@@ -145,7 +145,7 @@ const MusicPlayer = () => {
                 className="text-[#a3a3a3] hover:text-[#ffff]  hover:cursor-pointer"
                 onClick={nextSong}
               />
-              <PiShuffleBold className="text-[#a3a3a3]  hover:text-[#ffff]  hover:cursor-pointer" />
+              {/* <PiShuffleBold className="text-[#a3a3a3]  hover:text-[#ffff]  hover:cursor-pointer" /> */}
             </div>
             <div className="lower__player__range">
               <input

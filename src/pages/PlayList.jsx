@@ -24,13 +24,13 @@ const PlayList = () => {
       <NavBar />
       <div className="px-2">
         <div className="mb-6">
-          <h2 className="text-[1.8rem] text-[#ebebeb] font-semibold  w-[80vw] mx-auto mt-5">
+          <h2 className="text-[1.8rem] text-[#ebebeb] font-semibold  w-[80vw]   mx-auto mt-5">
             Top Playlists
           </h2>
         </div>
 
         <div className="flex justify-center mx-[5%]">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-y-2 sm:gap-y-7 gap-x-6 ">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6 gap-y-2 sm:gap-y-7 gap-x-6 ">
             {playlists?.map((playlists) => (
               <PlayListCard key={playlists.id} {...playlists} />
             ))}
