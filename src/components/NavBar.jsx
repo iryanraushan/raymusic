@@ -58,18 +58,18 @@ const NavBar = () => {
         </div> */}
 
         <div className="flex text-[#e2e1e1] font-semibold items-center">
-          <li class="flex items-center hidden md:block">
+          <li className="flex items-center hidden md:block">
             <a
-              class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href="https://github.com/iryanraushan/"
               target="_blank"
             >
               <FaGithub className="lg:text-blueGray-200 text-blueGray-400 text-3xl leading-lg" />
             </a>
           </li>
-          <li class="flex items-center hidden md:block">
+          <li className="flex items-center hidden md:block">
             <a
-              class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+              className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-2 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
               href="https://instagram.com/rryan_xd/"
               target="_blank"
             >

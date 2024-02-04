@@ -5,6 +5,7 @@ import AlbumDetails from "./pages/AlbumDetails";
 import MusicContext from "./context/MusicContext";
 import PlaylistDetails from "./pages/PlayListDetails";
 import PlayList from "./pages/PlayList";
+import About from "./pages/About";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -110,6 +111,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/albums/:id" element={<AlbumDetails />} />
           <Route path="/playlists" element={<PlayList />} />
+          <Route path="/about" element={<About />} />
           <Route path="/playlists/:id" element={<PlaylistDetails />} />
         </Routes>
       </HashRouter>
